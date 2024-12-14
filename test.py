@@ -24,7 +24,7 @@ from networks import make_mask, downsampling
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--config', type=str, default='./configs/unit_noise2clear-bn.yaml', help="net configuration")
-parser.add_argument('--input', type=str, default = '/data/simulation/train/motion/', help="input image path")
+parser.add_argument('--input', type=str, default = '/data/simulation/test/motion/', help="input image path")
 
 parser.add_argument('--output_folder', type=str, default='/result/', help="output image path")
 parser.add_argument('--checkpoint', type=str, default='/checkpoints/gen_00070000.pt',
