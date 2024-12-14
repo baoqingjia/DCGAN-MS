@@ -1,11 +1,11 @@
-# how to run the code?
+# How to run the code?
 
-## train
-train.py
+## Trainning
+python train.py
 
-## test
-test.py
+## Inference
+python test.py
 
-## about the public dataset
+## About the public dataset
 
-human brain MRI from fastMRI <https://fastmri.med.nyu.edu/>
+Human brain MRI from fastMRI <https://fastmri.med.nyu.edu/>
