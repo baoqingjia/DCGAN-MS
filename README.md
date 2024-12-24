@@ -1,3 +1,7 @@
+## Requirements
+- Pytorch 1.8.0
+- Python 3.6
+
 ## Trainning
 python train.py
 
