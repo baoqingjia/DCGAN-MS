@@ -229,6 +229,7 @@ class mymotionImageFolder2(data.Dataset):
 
     def __init__(self, root):
         seqs_dirs = sorted(glob.glob(os.path.join(root, '*')))
+        random.shuffle(seqs_dirs)
         sequences_motion = []
         for seq_dir in seqs_dirs:
             mat = sio.loadmat(seq_dir)
