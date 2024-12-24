@@ -49,9 +49,6 @@ class UNIT_Trainer(nn.Module):
         self.dis_b.apply(weights_init('gaussian'))
         self.gen_mask.apply(weights_init(hyperparameters['init']))
 
-
-
-
         # # Load VGG model if needed for test
         # if 'vgg_w' in hyperparameters.keys() and hyperparameters['vgg_w'] > 0:
         #     self.vgg = load_vgg19()
