@@ -74,31 +74,3 @@ class Downsampling:
                 out = tf_complex2ri(myTFifft2(down_k))
 
             return out
-
-# change the way to distinguish input
-# class Downsampling:
-#     def __init__(self, mode, name):
-#         """
-#         Fourier transform -> subsampling -> inverse Fourier transform
-#         :param mode: string
-#         :param name: string
-#         """
-#         self.name = name
-#         self.mode = mode
-#
-#     def __call__(self, inp, mask):
-#         with tf.variable_scope(self.name):
-#             if self.mode == 'magnitude':
-#                 full_k = myTFfft2(inp)  # magnitude image
-#             else:
-#                 full_k = myTFfft2(tf_ri2complex(inp))  # complex image
-#
-#             down_k = tf.multiply(full_k, tf.cast(mask, tf.complex64))
-#
-#             if self.mode == 'magnitude':
-#                 out = tf.abs(myTFifft2(down_k))
-#             else:
-#                 out = tf_complex2ri(myTFifft2(down_k))
-#
-#             return out
-
