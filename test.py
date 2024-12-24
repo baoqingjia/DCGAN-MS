@@ -55,37 +55,6 @@ trainer.eval()
 encode = trainer.gen_a.encode_cont  # encode function
 decode = trainer.gen_b.dec_cont  # decode function
 
-# motion_path = 'test_motion/13p3580398.mat'
-#
-# mat_name = motion_path.split("/")[-1]
-#
-# motion_mat = sio.loadmat(motion_path)
-# motion = motion_mat['test_motion']
-# motion = np.float32(motion)
-#
-# num = len(motion)
-#
-# out = np.zeros_like(motion)
-#
-# for i in range(num):
-#     print(i)
-#     motion_slice_tem = motion[i,:,:]
-#
-#     motion_slice = np.zeros(motion_slice_tem.shape, dtype=np.float32)
-#     cv2.normalize(motion_slice_tem, motion_slice, alpha=0, beta=1, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F)
-#
-#     motion_slice = np.expand_dims(np.expand_dims(motion_slice,0),0)
-#
-#     input = torch.from_numpy(motion_slice).cuda(trainer.gpuid)
-#
-#     content = encode(input)
-#     outputs = decode(content) + edge_conv2d(decode(content)) #torch.Size([1, 1, 256, 320])
-#
-#     final = outputs.data.cpu().numpy().squeeze()
-#     out[i,:,:] = final[:,:]
-# out = np.float64(out)
-# sio.savemat(os.path.join(opts.output_folder, mat_name),{'corrected':out})
-# trainer.N = 1
 for motion_name in sorted(os.listdir(opts.input)):
     motion_path = opts.input + motion_name
 
@@ -131,4 +100,3 @@ for motion_name in sorted(os.listdir(opts.input)):
         out[i,:,:] = np.mean(mid, axis=0)
     out = np.float64(out)
     sio.savemat(os.path.join(opts.output_folder, motion_name),{'corrected':out})
-
